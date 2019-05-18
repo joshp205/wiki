@@ -1,7 +1,7 @@
 {{define "content"}}
 <section class="container">
   <div class="columns">
-    <div class="column col-3">
+    <div class="column col-12 text-right">
       <div class="dropdown">
         <div class="btn-group">
           <a class="btn btn-sm btn-primary" href="/edit/{{.Title}}">
@@ -28,15 +28,19 @@
         </div>
       </div>
     </div>
-    <div class="column col-9 text-left">
-      <p>Last edited: ...</p>
-    </div>
   </div>
 </section>
 <section class="container">
   <div class="columns">
     <div class="column">
       {{.HTML}}
+    </div>
+  </div>
+</section>
+<section class="container">
+  <div class="columns">
+      <div class="column col-12 text-left">
+      <p>Last edited: ...</p>
     </div>
   </div>
 </section>
