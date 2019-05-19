@@ -31,23 +31,51 @@
     </header>
     {{template "content" .}}
   </section>
-<section>
-  <div class="modal modal-lg" id="searchResultsContainer">
-    <a href="#close" class="modal-overlay" aria-label="Close" onclick="closeModal()"></a>
-    <div class="modal-container" role="document">
-      <div class="modal-header">
-        <a href="#close" class="btn btn-clear float-right" aria-label="Close" onclick="closeModal()"></a>
-        <div class="modal-title h5">Search Results</div>
-      </div>
-      <div class="modal-body">
-        <div class="content" id="searchResultsDetails">
-          
+  <section>
+    <div class="modal modal-lg" id="searchResultsContainer">
+      <a href="#close" class="modal-overlay" aria-label="Close" onclick="closeModal()"></a>
+      <div class="modal-container" role="document">
+        <div class="modal-header">
+          <a href="#close" class="btn btn-clear float-right" aria-label="Close" onclick="closeModal()"></a>
+          <div class="modal-title h5">Search Results</div>
+        </div>
+        <div class="modal-body">
+          <div class="content" id="searchResultsDetails">
+            
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 </body>
+
+<script lang="application/javascript">
+  var btn = document.createElement("a");
+  btn.className = "btn btn-sm btn-action";
+  btn.onclick = () => { console.log("clicked") };
+
+  var btn_icon = document.createElement("i");
+  btn_icon.className = "icon icon-copy";
+  btn.appendChild(btn_icon);
+
+  var code = document.getElementsByClassName("hljs");
+  for (var i = 0; i < code.length; i++) {
+    code[i].appendChild(btn);
+  }
+
+  // function add_copy_button(id) {
+  //   var btn = document.createElement("a");
+  //   btn.className = "btn btn-sm btn-action";
+  //   btn.onclick = function() {alert('Clicked!');};
+
+  //   var btn_icon = document.createElement("i");
+  //   btn_icon.className = "icon icon-copy";
+  //   btn.appendChild(btn_icon);
+
+  //   document.getElementById(id).appendChild(btn);
+  // }
+</script>
+
 <script lang="application/javascript">
   function handleKeys(event) {
     if (event.which == 13 || event.keyCode == 13) {
