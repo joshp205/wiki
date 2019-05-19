@@ -54,31 +54,20 @@
   div.className = "text-right";
 
   var btn = document.createElement("a");
-  btn.className = "btn btn-sm btn-action btn-primary";
+  btn.className = "btn btn-sm btn-link";
+  btn.innerText = " Copy";
   btn.onclick = () => { console.log("clicked") };
 
   var btn_icon = document.createElement("i");
   btn_icon.className = "icon icon-copy";
-  btn.appendChild(btn_icon);
+  btn.prepend(btn_icon);
 
   div.appendChild(btn);
 
   var code = document.getElementsByTagName("code");
   for (var i = 0; i < code.length; i++) {
-    code[i].parentNode.appendChild(div);
+    code[i].parentNode.prepend(div);
   }
-
-  // function add_copy_button(id) {
-  //   var btn = document.createElement("a");
-  //   btn.className = "btn btn-sm btn-action";
-  //   btn.onclick = function() {alert('Clicked!');};
-
-  //   var btn_icon = document.createElement("i");
-  //   btn_icon.className = "icon icon-copy";
-  //   btn.appendChild(btn_icon);
-
-  //   document.getElementById(id).appendChild(btn);
-  // }
 </script>
 
 <script lang="application/javascript">
