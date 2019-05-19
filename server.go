@@ -52,13 +52,7 @@ func LoadPage(title string, config Config, baseurl *url.URL) (*Page, error) {
 	}
 
 	// Process and Parse the Markdown content
-	// Also automatically replace CamelCase page identifiers as links
-	markdown := validPage.ReplaceAll(
-		body,
-		[]byte(fmt.Sprintf("[$1](%s$1)", baseurl.String())),
-	)
-
-	unsafe := blackfriday.MarkdownCommon(markdown)
+	unsafe := blackfriday.MarkdownCommon(body)
 	p := bluemonday.UGCPolicy()
 	p.AllowAttrs("class").Matching(regexp.MustCompile("^language-[a-zA-Z0-9]+$")).OnElements("code")
 	html := p.SanitizeBytes(unsafe)
