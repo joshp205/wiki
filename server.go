@@ -61,7 +61,7 @@ func LoadPage(title string, config Config, baseurl *url.URL) (*Page, error) {
 	unsafe := blackfriday.MarkdownCommon(markdown)
 	p := bluemonday.UGCPolicy()
 	p.AllowAttrs("class").Matching(regexp.MustCompile("^language-[a-zA-Z0-9]+$")).OnElements("code")
-	html := bluemonday.UGCPolicy().SanitizeBytes(unsafe)
+	html := p.UGCPolicy().SanitizeBytes(unsafe)
 
 	return &Page{
 		Title: title,
