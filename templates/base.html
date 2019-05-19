@@ -13,7 +13,6 @@
   <title>{{.Title}}</title>
 </head>
 
-<script src="/js/clipboard.min.js"></script>
 <script src="/js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
@@ -52,8 +51,8 @@
 
 <script lang="application/javascript">
   function add_copy_button(code_element, i) {
-    var id = "cpytxt" + i;
-    code_element.id = id;
+    var txt_id = "cpytxt" + i;
+    code_element.id = txt_id;
 
     var div = document.createElement("div");
     div.className = "text-right";
@@ -61,7 +60,17 @@
     var btn = document.createElement("a");
     btn.className = "btn btn-sm btn-link";
     btn.innerText = " Copy";
-    btn.setAttribute("data-clipboard-target", "#" + id);
+    
+    btn.onclick = () => {
+      var code = document.getElementById(txt_id);
+      const el = document.createElement('textarea');
+
+      el.value = code.textContent;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+    };
 
     var btn_icon = document.createElement("i");
     btn_icon.className = "icon icon-copy";
