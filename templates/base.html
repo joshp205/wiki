@@ -50,6 +50,9 @@
 </body>
 
 <script lang="application/javascript">
+  var div = document.createElement("div");
+  div.className = "text-right";
+
   var btn = document.createElement("a");
   btn.className = "btn btn-sm btn-action";
   btn.onclick = () => { console.log("clicked") };
@@ -58,9 +61,11 @@
   btn_icon.className = "icon icon-copy";
   btn.appendChild(btn_icon);
 
-  var code = document.getElementsByClassName("hljs");
+  div.appendChild(btn);
+
+  var code = document.getElementsByTagName("code");
   for (var i = 0; i < code.length; i++) {
-    code[i].appendChild(btn);
+    code[i].parentNode.appendChild(div);
   }
 
   // function add_copy_button(id) {
