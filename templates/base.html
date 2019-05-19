@@ -50,23 +50,30 @@
 </body>
 
 <script lang="application/javascript">
-  var div = document.createElement("div");
-  div.className = "text-right";
+  function add_copy_button(element) {
+    var div = document.createElement("div");
+    div.className = "text-right";
 
-  var btn = document.createElement("a");
-  btn.className = "btn btn-sm btn-link";
-  btn.innerText = " Copy";
-  btn.onclick = () => { console.log("clicked") };
+    var btn = document.createElement("a");
+    btn.className = "btn btn-sm btn-link";
+    btn.innerText = " Copy";
+    btn.onclick = () => { console.log("clicked") };
 
-  var btn_icon = document.createElement("i");
-  btn_icon.className = "icon icon-copy";
-  btn.prepend(btn_icon);
+    var btn_icon = document.createElement("i");
+    btn_icon.className = "icon icon-copy";
+    btn.prepend(btn_icon);
 
-  div.appendChild(btn);
+    div.appendChild(btn);
+    element.prepend(div);
+  }
 
   var code = document.getElementsByTagName("code");
   for (var i = 0; i < code.length; i++) {
-    code[i].parentNode.prepend(div);
+    if (code[i].parentNode.localName === "p") {
+      continue;
+    }
+
+    add_copy_button(code[i].parentNode);
   }
 </script>
 
