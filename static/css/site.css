@@ -1,3 +1,22 @@
 pre {
 	overflow: auto;
+	position: relative;
+}
+
+/* Copy buttons */
+a.btn-copy {
+  webkit-transition: opacity .3s ease-in-out;
+  -o-transition: opacity .3s ease-in-out;
+  transition: opacity .3s ease-in-out;
+  opacity: 0;
+  padding: 2px 6px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+code:hover + .btn-copy {
+    opacity: .5;
+}
+.btn-copy:hover {
+    opacity: 1;
 }

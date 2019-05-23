@@ -54,11 +54,8 @@
     var txt_id = "cpytxt" + i;
     code_element.id = txt_id;
 
-    var div = document.createElement("div");
-    div.className = "text-right";
-
     var btn = document.createElement("a");
-    btn.className = "btn btn-sm btn-link";
+    btn.className = "btn btn-sm btn-primary btn-copy";
     btn.innerText = " Copy";
     
     btn.onclick = () => {
@@ -76,8 +73,7 @@
     btn_icon.className = "icon icon-copy";
     btn.prepend(btn_icon);
 
-    div.appendChild(btn);
-    code_element.parentNode.prepend(div);
+    code_element.parentNode.appendChild(btn);
   }
 
   var code = document.getElementsByTagName("code");
